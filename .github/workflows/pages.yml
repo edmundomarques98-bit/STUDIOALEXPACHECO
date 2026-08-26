@@ -33,7 +33,8 @@ jobs:
         run: |
           mkdir -p _site/public _site/videos
           cp index.html site.css .nojekyll _site/
-          cp public/hero-studio.webp public/favicon.svg _site/public/\n          cp videos/*.mp4 _site/videos/
+          cp public/hero-studio.webp public/favicon.svg _site/public/
+          cp videos/*.mp4 _site/videos/
 
       - name: Enviar arquivos
         uses: actions/upload-pages-artifact@v4
