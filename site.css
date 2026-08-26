@@ -23,3 +23,47 @@
 .evolution-card-content p{margin-bottom:0}
 @media(max-width:700px){.evolution-card{min-height:auto!important}.evolution-photo{height:310px}.evolution-card-content{padding:24px 24px 29px}}
 @media(prefers-reduced-motion:reduce){.evolution-photo img{transition:none}.evolution-card:hover .evolution-photo img{transform:none}}
+
+/* Ajustes finais para navegadores móveis e visualização dentro do WhatsApp */
+body{width:100%;max-width:100%;overflow-x:clip}
+img,video{max-width:100%}
+@supports not (overflow:clip){body{overflow-x:hidden}}
+@media(max-width:700px){
+  .container{width:calc(100% - 24px)}
+  .hero,.hero-content{min-height:760px}
+  .hero-content{padding-top:100px;padding-bottom:48px}
+  .hero-copy{width:100%;min-width:0}
+  h1,h2,h3{max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none}
+  h1{font-size:clamp(2.55rem,12.5vw,3.4rem);line-height:.93;letter-spacing:-.055em}
+  .hero-lead{max-width:100%;font-size:15px;line-height:1.55}
+  .hero-actions .button{width:100%;padding-inline:16px;text-align:center}
+  .hero-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%}
+  .hero-proof strong{font-size:14px}
+  .hero-proof span{font-size:7.5px;line-height:1.3;overflow-wrap:break-word}
+  .principles article{padding:25px 18px}
+  .section{padding:72px 0}
+  .section-heading h2,.schedule-layout h2,.start-card h2{font-size:clamp(2rem,9.6vw,2.6rem);line-height:.98;letter-spacing:-.045em}
+  .split-heading>p,.center-heading>p:last-child,.schedule-layout>div:first-child>p:last-child{font-size:14px;overflow-wrap:break-word}
+  .evolution-photo{height:clamp(235px,76vw,300px)}
+  .evolution-card-content{padding:24px 24px 29px}
+  .evolution-card-content b{font-size:38px}
+  .price-card{min-width:0;padding:27px 22px}
+  .price b{font-size:56px}
+  .price-card>a{padding-inline:14px;white-space:normal}
+  .week-board{width:100%;max-width:100%;grid-template-columns:repeat(5,104px);scroll-snap-type:x proximity;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch}
+  .day-video{min-width:0;scroll-snap-align:start}
+  .start-card{min-width:0}
+  .footer-inner{width:calc(100% - 24px)}
+}
+@media(max-width:380px){
+  .container,.footer-inner{width:calc(100% - 20px)}
+  .brand{gap:9px}
+  .brand-symbol{width:38px}
+  .brand-copy strong{font-size:12px}
+  h1{font-size:clamp(2.35rem,12.2vw,2.9rem)}
+  .eyebrow{font-size:9px;letter-spacing:.14em}
+  .hero-proof strong{font-size:12px}
+  .hero-proof span{font-size:7px}
+  .section-heading h2,.schedule-layout h2,.start-card h2{font-size:clamp(1.85rem,9.4vw,2.2rem)}
+  .price-card{padding-inline:18px}
+}
