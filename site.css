@@ -67,3 +67,12 @@ img,video{max-width:100%}
   .section-heading h2,.schedule-layout h2,.start-card h2{font-size:clamp(1.85rem,9.4vw,2.2rem)}
   .price-card{padding-inline:18px}
 }
+/* Título principal com linhas controladas para telas móveis */
+.hero-title>span{display:block;max-width:100%;white-space:nowrap}
+.hero-title em{display:inline}
+@media(max-width:700px){
+  .hero-title{font-size:clamp(2.05rem,10.6vw,2.85rem);line-height:.96;letter-spacing:-.045em}
+}
+@media(max-width:380px){
+  .hero-title{font-size:clamp(2.05rem,10.4vw,2.45rem)}
+}
