@@ -22,4 +22,4 @@ Site institucional do Studio Alex Pacheco, desenvolvido para apresentar evoluç�
 
 A versão publicada está disponível em:
 
-https://studio-alex-pacheco.edmundomarques98.chatgpt.site
+https://edmundomarques98-bit.github.io/STUDIOALEXPACHECO/
