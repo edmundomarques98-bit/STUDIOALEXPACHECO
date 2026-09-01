@@ -76,3 +76,32 @@ img,video{max-width:100%}
 @media(max-width:380px){
   .hero-title{font-size:clamp(2.05rem,10.4vw,2.45rem)}
 }
+
+
+/* Movimento progressivo e acessível */
+.site-header{transition:background .35s ease,border-color .35s ease,backdrop-filter .35s ease}
+.site-header.is-scrolled{position:fixed;background:rgba(6,10,9,.88);border-color:rgba(0,232,137,.18);backdrop-filter:blur(18px)}
+.price-card{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,border-color .35s ease}
+.price-card:hover{transform:translateY(-6px);border-color:rgba(10,139,91,.4);box-shadow:0 22px 55px rgba(15,35,25,.12)}
+.price-card.featured:hover{transform:translateY(-14px)}
+.day-video video{transition:transform .65s cubic-bezier(.2,.8,.2,1),filter .4s ease}
+.day-video:hover video{transform:scale(1.07);filter:saturate(1.12)}
+@media(prefers-reduced-motion:no-preference){
+  .hero-grid{animation:grid-drift 18s linear infinite}
+  .hero-media{animation:hero-focus 1.25s cubic-bezier(.2,.8,.2,1) both}
+  .hero-title>span{animation:title-in .75s cubic-bezier(.2,.8,.2,1) both}
+  .hero-title>span:nth-child(1){animation-delay:.1s}.hero-title>span:nth-child(2){animation-delay:.2s}.hero-title>span:nth-child(3){animation-delay:.3s}
+  .hero-lead,.hero-actions,.hero-proof{animation:reveal-up .7s cubic-bezier(.2,.8,.2,1) both}
+  .hero-lead{animation-delay:.38s}.hero-actions{animation-delay:.46s}.hero-proof{animation-delay:.54s}
+  .hero-card{animation:float-in .9s .35s cubic-bezier(.2,.8,.2,1) both,card-float 4.5s 1.3s ease-in-out infinite alternate}
+  .motion-ready [data-reveal]{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .75s cubic-bezier(.2,.8,.2,1)}
+  .motion-ready [data-reveal].is-visible{opacity:1;transform:translate3d(0,0,0)}
+  .motion-ready .price-card.featured.is-visible{transform:translateY(-8px)}
+  .motion-ready .evolution-grid [data-reveal]:nth-child(2),.motion-ready .pricing-grid [data-reveal]:nth-child(2){transition-delay:.09s}
+  .motion-ready .evolution-grid [data-reveal]:nth-child(3),.motion-ready .pricing-grid [data-reveal]:nth-child(3){transition-delay:.18s}
+  .motion-ready .evolution-grid [data-reveal]:nth-child(4){transition-delay:.27s}
+  .motion-ready .week-board [data-reveal]:nth-child(2){transition-delay:.07s}.motion-ready .week-board [data-reveal]:nth-child(3){transition-delay:.14s}.motion-ready .week-board [data-reveal]:nth-child(4){transition-delay:.21s}.motion-ready .week-board [data-reveal]:nth-child(5){transition-delay:.28s}
+  @keyframes reveal-up{from{opacity:0;transform:translateY(22px)}}@keyframes title-in{from{opacity:0;transform:translateY(55%);filter:blur(6px)}}@keyframes float-in{from{opacity:0;transform:translateY(34px) scale(.96)}}@keyframes card-float{to{transform:translateY(-8px)}}@keyframes hero-focus{from{opacity:.2;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}@keyframes grid-drift{to{background-position:82px 82px}}
+}
+@media(max-width:700px) and (prefers-reduced-motion:no-preference){.motion-ready .price-card.featured.is-visible{transform:translate3d(0,0,0)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
