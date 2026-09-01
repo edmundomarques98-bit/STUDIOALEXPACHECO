@@ -120,3 +120,22 @@ img,video{max-width:100%}
 .plans-section .plan-group:last-child .price-card header span{color:#087f7c}
 .plans-section .plan-group:last-child .price-card>a{border-color:rgba(9,157,153,.4);color:#087f7c}
 .plans-section .plan-group:last-child .price-card>a:hover{color:#043f3e;background:rgba(40,215,207,.12)}
+
+
+/* Preenchimento dos cards de valores por categoria */
+.plans-section .plan-group:not(:last-child) .price-card{color:#fff;border-color:rgba(0,232,137,.34);background:linear-gradient(145deg,#0b7955 0%,#07513d 100%);box-shadow:0 18px 46px rgba(4,72,49,.2)}
+.plans-section .plan-group:not(:last-child) .price-card.featured{color:#041a11;border-color:#00c879;background:linear-gradient(145deg,#21e798 0%,#00aa68 100%);box-shadow:0 24px 58px rgba(0,142,87,.3)}
+.plans-section .plan-group:last-child .price-card{color:#fff;border-color:rgba(40,215,207,.42);background:linear-gradient(145deg,#118e8b 0%,#075d66 100%);box-shadow:0 18px 46px rgba(4,85,90,.22)}
+.plans-section .price-card header{border-color:rgba(255,255,255,.24)}
+.plans-section .price-card header span,.plans-section .plan-group:last-child .price-card header span{color:rgba(255,255,255,.76)}
+.plans-section .price-card.featured header span{color:rgba(4,26,17,.68)}
+.plans-section .price-card .price small{color:#b8ffe0}
+.plans-section .price-card.featured .price small{color:#06442e}
+.plans-section .price-card .price span{color:rgba(255,255,255,.7)}
+.plans-section .price-card.featured .price span{color:rgba(4,26,17,.66)}
+.plans-section .price-card li{color:rgba(255,255,255,.82)}
+.plans-section .price-card.featured li{color:rgba(4,26,17,.76)}
+.plans-section .price-card>a{color:#fff;border-color:rgba(255,255,255,.52);background:rgba(255,255,255,.05)}
+.plans-section .price-card>a:hover{color:#064c3d;border-color:#fff;background:#fff}
+.plans-section .price-card.featured>a{color:#075037;border-color:#fff;background:#fff}
+.plans-section .price-card.featured>i{color:#fff;background:#073f2d}
