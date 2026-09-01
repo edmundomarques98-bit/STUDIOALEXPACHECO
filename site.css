@@ -105,3 +105,18 @@ img,video{max-width:100%}
 }
 @media(max-width:700px) and (prefers-reduced-motion:no-preference){.motion-ready .price-card.featured.is-visible{transform:translate3d(0,0,0)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+
+/* Cores distintas para programas individuais e para casal */
+.plans-section .plan-group{--plan-accent:#0a8b5b;--plan-tint:rgba(0,232,137,.08)}
+.plans-section .plan-group:last-child{--plan-accent:#099d99;--plan-tint:rgba(40,215,207,.12);padding-top:48px;border-top:1px solid rgba(9,157,153,.24)}
+.plan-group-title{padding:14px 18px;border-left:4px solid var(--plan-accent);border-radius:3px 16px 3px 16px;background:var(--plan-tint)}
+.price-card{overflow:hidden}
+.price-card::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--plan-accent)}
+.price small{color:var(--plan-accent)}
+.price-card li{accent-color:var(--plan-accent)}
+.plans-section .plan-group:last-child .price-card{border-color:rgba(9,157,153,.24);background:linear-gradient(180deg,rgba(40,215,207,.055),#fff 31%)}
+.plans-section .plan-group:last-child .price-card:hover{border-color:rgba(9,157,153,.6);box-shadow:0 22px 55px rgba(9,126,124,.13)}
+.plans-section .plan-group:last-child .price-card header span{color:#087f7c}
+.plans-section .plan-group:last-child .price-card>a{border-color:rgba(9,157,153,.4);color:#087f7c}
+.plans-section .plan-group:last-child .price-card>a:hover{color:#043f3e;background:rgba(40,215,207,.12)}
