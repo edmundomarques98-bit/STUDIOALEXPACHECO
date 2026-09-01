@@ -156,5 +156,28 @@
   </main>
 
   <footer><div class="container footer-inner"><a class="brand" href="#inicio"><span class="brand-symbol">AP</span><span class="brand-copy"><strong>Alex Pacheco</strong><small>Studio funcional</small></span></a><p>Treinamento funcional com propósito, constância e evolução.</p><a href="#inicio">Voltar ao topo ↑</a></div></footer>
+
+  <script>
+    (() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      document.documentElement.classList.add("motion-ready");
+      const targets = document.querySelectorAll(
+        ".principles, .section-heading, .evolution-card, .plan-group-title, .price-card, .schedule-layout > div, .week-board, .day-video, .start-card"
+      );
+      targets.forEach((element) => element.setAttribute("data-reveal", "true"));
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -7% 0px" });
+      targets.forEach((element) => observer.observe(element));
+      const header = document.querySelector(".site-header");
+      const updateHeader = () => header?.classList.toggle("is-scrolled", window.scrollY > 24);
+      updateHeader();
+      addEventListener("scroll", updateHeader, { passive: true });
+    })();
+  </script>
 </body>
 </html>
