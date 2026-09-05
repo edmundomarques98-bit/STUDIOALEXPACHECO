@@ -9,6 +9,11 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
+import { EvolutionSlideshow } from "./evolution-slideshow";
+import slideGroups from "./evolution-slides.json";
+
+const slidesByImage: Record<string, string[]> = slideGroups;
+
 import { MotionController } from "./motion-controller";
 
 const individualPlans = [
@@ -30,7 +35,7 @@ const evolutions = [
     text: "Uma mudança que começou na rotina e transformou a relação com a alimentação, o corpo e a autoestima.",
     image: "/evolucoes/evolucao-35kg.webp",
     imageClass: "",
-    alt: "Aluna do Studio Alex Pacheco celebrando sua evolução física",
+    alt: "Aluno do Studio Alex Pacheco celebrando sua evolução de 109 kg a 74 kg",
   },
   {
     number: "−22 kg",
@@ -255,9 +260,13 @@ export default function Home() {
           <div className="evolution-grid">
             {evolutions.map((item, index) => (
               <article className="evolution-card" key={item.title} data-reveal="card">
-                <div className={`evolution-photo ${item.imageClass}`}>
-                  <img src={item.image} alt={item.alt} loading="lazy" />
-                </div>
+                {slidesByImage[item.image] ? (
+                  <EvolutionSlideshow title={item.title} images={slidesByImage[item.image]} />
+                ) : (
+                  <div className={`evolution-photo ${item.imageClass}`}>
+                    <img src={item.image} alt={item.alt} loading="lazy" />
+                  </div>
+                )}
                 <div className="evolution-card-content">
                   <span className="card-index">{String(index + 1).padStart(2, "0")}</span>
                   <strong className="evolution-number">{item.number}</strong>

@@ -33,9 +33,9 @@ jobs:
         run: |
           mkdir -p _site/public _site/videos _site/evolucoes
           cp index.html site.css .nojekyll _site/
-          cp public/hero-studio.webp public/favicon.svg _site/public/
+          cp public/hero-studio.webp public/favicon.svg public/evolution-slideshow.js _site/public/
           cp videos/*.mp4 _site/videos/
-          cp evolucoes/*.webp _site/evolucoes/
+          cp -R evolucoes/. _site/evolucoes/
 
       - name: Enviar arquivos
         uses: actions/upload-pages-artifact@v4

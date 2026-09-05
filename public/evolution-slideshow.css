@@ -1,0 +1,16 @@
+/* The original artwork remains uncropped, with controls below the image. */
+.evolution-slideshow { width: 100%; min-width: 0; background: #070b09; }
+.evolution-slides { display: flex; width: 100%; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.evolution-slides::-webkit-scrollbar { display: none; }
+.evolution-slide { flex: 0 0 100%; min-width: 0; aspect-ratio: 3 / 4; scroll-snap-align: start; scroll-snap-stop: always; }
+.evolution-slide img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; filter: none; transform: none !important; }
+.evolution-controls:not([hidden]) { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px; border-top: 1px solid #223d30; background: #0d1711; }
+.evolution-controls button { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; min-width: 44px; min-height: 44px; border: 1px solid #3b6550; border-radius: 8px; padding: 8px 12px; color: #dbffea; background: #14261b; font: inherit; font-size: 20px; cursor: pointer; }
+.evolution-controls .evolution-pause { font-size: 14px; font-weight: 650; }
+.evolution-controls button:hover { background: #23432f; border-color: #00e889; }
+.evolution-controls button:focus-visible, .evolution-slides:focus-visible { outline: 3px solid #00e889; outline-offset: -3px; }
+.evolution-counter { color: #dcf6e6; font-size: 14px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 360px) {
+  .evolution-controls:not([hidden]) { gap: 5px; padding: 9px; }
+  .evolution-controls button { padding-inline: 9px; }
+}
