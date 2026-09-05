@@ -153,3 +153,24 @@ img,video{max-width:100%}
   .hero-proof strong{font-size:15px}
   .hero-proof span{font-size:8.5px;letter-spacing:.045em}
 }
+
+/* Expanded evolution gallery: independent cards and readable mobile stories. */
+.evolution-section .evolution-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; border: 0; }
+.evolution-section .evolution-card { min-width: 0; min-height: 0; border: 1px solid var(--line); border-radius: 10px; }
+.evolution-section .evolution-photo { height: 340px; flex-shrink: 0; }
+.evolution-section .evolution-photo-knee img { object-position: center 18%; }
+.evolution-section .evolution-photo-complete img { object-fit: contain; filter: none; }
+.evolution-section .evolution-photo-complete::after { display: none; }
+.evolution-section .evolution-photo-rita img { height: 200%; object-position: center top; }
+.evolution-section .evolution-photo-football img { object-position: center 43%; }
+.evolution-section .evolution-card-content > :is(strong, b) { font-size: clamp(30px, 3vw, 42px); overflow-wrap: anywhere; }
+.evolution-section .evolution-card p { font-size: 15px; color: #b6c0ba; line-height: 1.7; }
+@media (max-width: 980px) {
+  .evolution-section .evolution-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .evolution-section .evolution-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .evolution-section .evolution-photo { height: clamp(290px, 92vw, 390px); }
+  .evolution-section .evolution-card h3 { font-size: 19px; line-height: 1.35; }
+  .evolution-section .evolution-card p { font-size: 16px; }
+}

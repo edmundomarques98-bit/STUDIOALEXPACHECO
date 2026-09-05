@@ -9,6 +9,7 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
+import { MotionController } from "./motion-controller";
 
 const individualPlans = [
   { days: "3 dias", price: "100", note: "3 dias da sua escolha", featured: false },
@@ -27,22 +28,98 @@ const evolutions = [
     number: "−35 kg",
     title: "De 109 kg a 74 kg",
     text: "Uma mudança que começou na rotina e transformou a relação com a alimentação, o corpo e a autoestima.",
+    image: "/evolucoes/evolucao-35kg.webp",
+    imageClass: "",
+    alt: "Aluna do Studio Alex Pacheco celebrando sua evolução física",
   },
   {
     number: "−22 kg",
     title: "De 114 kg a 92 kg",
     text: "O retorno ao movimento virou constância, confiança e disposição para retomar o que antes parecia distante.",
+    image: "/evolucoes/evolucao-22kg.webp",
+    imageClass: "evolution-photo-portrait",
+    alt: "Aluno do Studio Alex Pacheco mostrando sua evolução durante o treino",
   },
   {
     number: "−16 kg",
     title: "Mais leve. Mais confiante.",
     text: "Um processo construído com persistência, novos hábitos e acompanhamento em cada fase da evolução.",
+    image: "/evolucoes/evolucao-16kg.webp",
+    imageClass: "evolution-photo-art",
+    alt: "Comparativo de evolução com 16 quilos eliminados",
   },
   {
     number: "100%",
     title: "Movimento recuperado",
     text: "Depois de uma lesão no joelho, o fortalecimento progressivo devolveu segurança para treinar e viver melhor.",
+    image: "/evolucoes/evolucao-movimento-recuperado.webp",
+    imageClass: "evolution-photo-knee",
+    alt: "Aluno do Studio que recuperou o movimento após uma lesão no joelho",
   },
+  {
+    "number": "−28 kg",
+    "title": "De 135 kg a 107 kg",
+    "text": "Uma história de mudança construída com treino, autocuidado e a confiança de continuar evoluindo.",
+    "image": "/evolucoes/evolucao-28kg.webp",
+    "imageClass": "evolution-photo-portrait",
+    "alt": "Aluna no Studio, na etapa de 107 kg registrada em seu relato de evolução"
+  },
+  {
+    "number": "−18 kg",
+    "title": "Sandrinha: de 87 kg a 69 kg",
+    "text": "Além dos 18 kg eliminados, Sandrinha conquistou sua primeira corrida de 4,10 km. Mais um desafio vencido.",
+    "image": "/evolucoes/evolucao-sandrinha-18kg.webp",
+    "imageClass": "evolution-photo-complete",
+    "alt": "Arte da evolução de Sandrinha com sua foto e o resultado de 87 kg para 69 kg"
+  },
+  {
+    "number": "−10,7 kg",
+    "title": "De 66,5 kg a 55,8 kg",
+    "text": "Uma conquista que vai além da balança, celebrada com movimento, gratidão e orgulho de cada etapa.",
+    "image": "/evolucoes/evolucao-107kg.webp",
+    "imageClass": "evolution-photo-portrait",
+    "alt": "Aluna com sua medalha na foto usada no relato de 10,7 kg eliminados"
+  },
+  {
+    "number": "Recomeço",
+    "title": "Rita: orgulho da própria história",
+    "text": "Mesmo sem se sentir pronta, Rita decidiu tentar. Hoje, agradece à mulher que não desistiu de si mesma.",
+    "image": "/evolucoes/evolucao-rita.webp",
+    "imageClass": "evolution-photo-rita",
+    "alt": "Rita sorrindo na foto de seu depoimento de evolução"
+  },
+  {
+    "number": "9 meses",
+    "title": "Futebol do início ao fim",
+    "text": "Antes, correr cinco minutos era difícil. Após nove meses de constância, voltou a jogar uma partida inteira, com mais condicionamento.",
+    "image": "/evolucoes/evolucao-futebol.webp",
+    "imageClass": "evolution-photo-football",
+    "alt": "Aluno com uniforme de futebol número 12, do relato de nove meses de evolução"
+  },
+  {
+    "number": "Na pista",
+    "title": "Do funcional às conquistas",
+    "text": "A busca por mais saúde se transformou em evolução esportiva, superação e conquistas nas corridas.",
+    "image": "/evolucoes/evolucao-corrida.webp",
+    "imageClass": "evolution-photo-portrait",
+    "alt": "Corredor do Studio durante uma prova, fotografado no material de sua evolução esportiva"
+  },
+  {
+    "number": "−15,7 kg",
+    "title": "Evolução em 4 meses e 18 dias",
+    "text": "A avaliação registrou também 13 cm a menos de cintura e 11 cm de abdômen. Cada medida representa uma etapa do processo.",
+    "image": "/evolucoes/evolucao-avaliacao.webp",
+    "imageClass": "evolution-photo-complete",
+    "alt": "Antes e depois da avaliação de quatro meses e dezoito dias, com 15,7 kg eliminados"
+  },
+];
+
+const weekdayVideos = [
+  { day: "SEG", number: "01", label: "Segunda-feira", video: "/videos/segunda.mp4" },
+  { day: "TER", number: "02", label: "Terça-feira", video: "/videos/terca.mp4" },
+  { day: "QUA", number: "03", label: "Quarta-feira", video: "/videos/quarta.mp4" },
+  { day: "QUI", number: "04", label: "Quinta-feira", video: "/videos/quinta.mp4" },
+  { day: "SEX", number: "05", label: "Sexta-feira", video: "/videos/sexta.mp4" },
 ];
 
 function BrandMark() {
@@ -67,7 +144,7 @@ function PriceCard({
   const featured = "featured" in plan && plan.featured;
 
   return (
-    <article className={`price-card ${featured ? "price-card-featured" : ""}`}>
+    <article className={`price-card ${featured ? "price-card-featured" : ""}`} data-reveal="card">
       {featured ? <span className="popular-label">Mais escolhido</span> : null}
       <div className="price-card-top">
         <span>{kind}</span>
@@ -93,6 +170,7 @@ function PriceCard({
 export default function Home() {
   return (
     <main>
+      <MotionController />
       <header className="site-header">
         <div className="container header-inner">
           <BrandMark />
@@ -114,7 +192,11 @@ export default function Home() {
         <div className="container hero-content">
           <div className="hero-copy">
             <p className="eyebrow"><span /> Treinamento funcional em Acopiara</p>
-            <h1>Seu progresso vai <em>muito além</em> da balança.</h1>
+            <h1 className="hero-title">
+              <span>Seu progresso</span>
+              <span>vai <em>muito além</em></span>
+              <span>da balança.</span>
+            </h1>
             <p className="hero-lead">
               Programas de treino que respeitam seu nível, sua rotina e o resultado que você quer construir.
             </p>
@@ -142,7 +224,7 @@ export default function Home() {
         <div className="hero-bottom-line" />
       </section>
 
-      <section className="principles" aria-label="Como o Studio trabalha">
+      <section className="principles" aria-label="Como o Studio trabalha" data-reveal="section">
         <div className="container principles-grid">
           <article>
             <HeartPulse aria-hidden="true" />
@@ -161,7 +243,7 @@ export default function Home() {
 
       <section className="evolution-section section" id="evolucoes">
         <div className="container">
-          <div className="section-heading split-heading">
+          <div className="section-heading split-heading" data-reveal="heading">
             <div>
               <p className="eyebrow"><span /> Evoluções reais</p>
               <h2>Quando o treino entra na rotina, a mudança aparece na vida.</h2>
@@ -172,11 +254,16 @@ export default function Home() {
           </div>
           <div className="evolution-grid">
             {evolutions.map((item, index) => (
-              <article className="evolution-card" key={item.title}>
-                <span className="card-index">0{index + 1}</span>
-                <strong className="evolution-number">{item.number}</strong>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
+              <article className="evolution-card" key={item.title} data-reveal="card">
+                <div className={`evolution-photo ${item.imageClass}`}>
+                  <img src={item.image} alt={item.alt} loading="lazy" />
+                </div>
+                <div className="evolution-card-content">
+                  <span className="card-index">{String(index + 1).padStart(2, "0")}</span>
+                  <strong className="evolution-number">{item.number}</strong>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
               </article>
             ))}
           </div>
@@ -186,14 +273,14 @@ export default function Home() {
 
       <section className="plans-section section" id="programas">
         <div className="container">
-          <div className="section-heading center-heading">
+          <div className="section-heading center-heading" data-reveal="heading">
             <p className="eyebrow"><span /> Programas de treino</p>
             <h2>Escolha a frequência que cabe na sua semana.</h2>
             <p>Valores mensais. Você organiza os dias e constrói consistência sem transformar treino em obrigação impossível.</p>
           </div>
 
           <div className="plan-group">
-            <div className="plan-group-title">
+            <div className="plan-group-title" data-reveal="heading">
               <span><Dumbbell size={20} /> Individual</span>
               <small>Seu ritmo. Sua programação.</small>
             </div>
@@ -203,7 +290,7 @@ export default function Home() {
           </div>
 
           <div className="plan-group couple-group">
-            <div className="plan-group-title">
+            <div className="plan-group-title" data-reveal="heading">
               <span><Users size={20} /> Casal</span>
               <small>Mais motivação para evoluírem juntos.</small>
             </div>
@@ -216,7 +303,7 @@ export default function Home() {
 
       <section className="schedule-section section" id="dias">
         <div className="container schedule-layout">
-          <div className="schedule-copy">
+          <div className="schedule-copy" data-reveal="left">
             <p className="eyebrow"><span /> Sua semana, seu programa</p>
             <h2>Você escolhe os dias. A gente ajuda a manter o ritmo.</h2>
             <p>
@@ -227,20 +314,23 @@ export default function Home() {
               <div><Clock3 size={20} /><span><strong>5 dias</strong>Segunda a sexta</span></div>
             </div>
           </div>
-          <div className="week-board" aria-label="Programação semanal de segunda a sexta">
-            {[
-              ["SEG", "01"], ["TER", "02"], ["QUA", "03"], ["QUI", "04"], ["SEX", "05"],
-            ].map(([day, number]) => (
-              <div className="day-card" key={day}>
-                <span>{day}</span><strong>{number}</strong><small>Movimento</small>
-              </div>
+          <div className="week-board" aria-label="Programação semanal de segunda a sexta" data-reveal="right">
+            {weekdayVideos.map(({ day, number, label, video }) => (
+              <article className="day-card day-video" key={day} aria-label={label} data-reveal="card">
+                <video autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+                  <source src={video} type="video/mp4" />
+                </video>
+                <div className="day-video-label">
+                  <span>{day}</span><strong>{number}</strong><small>Movimento</small>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       <section className="start-section" id="como-comecar">
-        <div className="container start-card">
+        <div className="container start-card" data-reveal="section">
           <div>
             <p className="eyebrow"><span /> Seu próximo passo</p>
             <h2>Você não precisa estar preparado para começar.</h2>
