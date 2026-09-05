@@ -210,5 +210,62 @@
       addEventListener("scroll", updateHeader, { passive: true });
     })();
   </script>
+<script data-card-emphasis>
+(() => {
+  if (document.getElementById("studio-card-emphasis-style")) return;
+  const cards = Array.from(document.querySelectorAll(".price-card, .evolution-card"));
+  const groups = document.querySelectorAll(".plan-group");
+  cards.forEach(card => {
+    card.classList.add("emphasis-card");
+    const couple = card.closest(".couple-group") || (groups.length > 1 && card.closest(".plan-group") === groups[1]);
+    card.style.setProperty("--card-highlight", couple ? "#28d7cf" : "#00e889");
+  });
+  const style = document.createElement("style");
+  style.id = "studio-card-emphasis-style";
+  style.textContent = `
+    .emphasis-card{position:relative;scale:1;outline:2px solid transparent;outline-offset:-2px;transform-origin:center;transition:scale .3s ease,outline-color .3s ease,box-shadow .3s ease,opacity .7s ease,transform .75s cubic-bezier(.2,.8,.2,1)!important;transition-delay:0s!important}
+    .emphasis-card:focus-within,.emphasis-card.is-scroll-highlight{z-index:5;outline-color:var(--card-highlight);box-shadow:0 0 0 1px var(--card-highlight),0 16px 32px #0004!important}
+    @media(hover:hover) and (pointer:fine){
+      .emphasis-card:hover{z-index:5;outline-color:var(--card-highlight);box-shadow:0 0 0 1px var(--card-highlight),0 20px 42px #0005!important}
+    }
+    @media(prefers-reduced-motion:no-preference){
+      .emphasis-card:focus-within{scale:1.015}
+      .emphasis-card.is-scroll-highlight{scale:1.015}
+      @media(hover:hover) and (pointer:fine){.emphasis-card:hover{scale:1.035}}
+    }
+    @media(prefers-reduced-motion:reduce){.emphasis-card{scale:1!important;transition:none!important}}
+  `;
+  document.head.appendChild(style);
+  const mobile = window.matchMedia("(hover: none), (pointer: coarse), (max-width: 760px)");
+  let frame = 0;
+  let active = null;
+  const update = () => {
+    frame = 0;
+    let next = null;
+    let closest = Infinity;
+    if (mobile.matches) {
+      const height = window.innerHeight;
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const visible = Math.max(0, Math.min(rect.bottom, height) - Math.max(rect.top, 88));
+        if (visible < Math.min(rect.height, height - 88) * .45) return;
+        const distance = Math.abs((rect.top + rect.bottom) / 2 - height * .52);
+        if (distance < closest) { closest = distance; next = card; }
+      });
+    }
+    if (next !== active) {
+      if (active) active.classList.remove("is-scroll-highlight");
+      if (next) next.classList.add("is-scroll-highlight");
+      active = next;
+    }
+  };
+  const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", schedule, { passive: true });
+  window.addEventListener("pageshow", schedule);
+  mobile.addEventListener("change", schedule);
+  update();
+})();
+</script>
 </body>
 </html>
