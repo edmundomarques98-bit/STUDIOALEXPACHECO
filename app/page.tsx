@@ -183,12 +183,18 @@ export default function Home() {
             <a href="#evolucoes">Evoluções</a>
             <a href="#programas">Programas</a>
             <a href="#dias">Dias de treino</a>
+            <a href="#localizacao">Localização</a>
+            <a href="#avalie">Avalie no Google</a>
           </nav>
           <a className="header-cta" href="#programas">
             Ver valores <ArrowRight size={16} aria-hidden="true" />
           </a>
         </div>
-      </header>
+              <nav className="container location-shortcuts" aria-label="Localização e avaliações">
+          <a href="#localizacao">Localização</a>
+          <a href="#avalie">Avalie no Google</a>
+        </nav>
+</header>
 
       <section className="hero" id="inicio">
         <div className="hero-grid" aria-hidden="true" />
@@ -334,6 +340,30 @@ export default function Home() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="location-section section" id="localizacao" aria-labelledby="location-heading">
+        <div className="container">
+          <div className="section-heading" data-reveal="heading">
+            <p className="eyebrow"><span></span> Localização e avaliações</p>
+            <h2 id="location-heading">Perto de você.<br />Parte da sua evolução.</h2>
+          </div>
+          <div className="location-grid">
+            <article className="location-card" data-reveal="card">
+              <span className="location-label">Como chegar</span>
+              <h3>Venha conhecer o Studio.</h3>
+              <p>Abra nosso perfil no Google para consultar a localização e traçar a rota até o Studio Alex Pacheco.</p>
+              <a className="button button-solid" href="https://share.google/LnVnGTdIWXZoCxmzW" target="_blank" rel="noopener noreferrer">Ver localização no Google <span aria-hidden="true">↗</span></a>
+            </article>
+            <article className="location-card review-card" id="avalie" data-reveal="card">
+              <span className="location-label">Sua experiência importa</span>
+              <h3>Seu relato pode inspirar um novo começo.</h3>
+              <p>Já treina com a gente? Conte no Google como tem sido sua experiência. Sua opinião ajuda outras pessoas a conhecer o Studio e escolher onde treinar.</p>
+              <a className="button review-button" href="https://share.google/LnVnGTdIWXZoCxmzW" target="_blank" rel="noopener noreferrer">Avalie no Google <span aria-hidden="true">↗</span></a>
+              <p className="review-help">No perfil do Studio, abra a área de avaliações e compartilhe sua experiência.</p>
+            </article>
           </div>
         </div>
       </section>
