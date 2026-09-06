@@ -9,6 +9,7 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
+import { InstagramProfile } from "./instagram-profile";
 import { EvolutionSlideshow } from "./evolution-slideshow";
 import slideGroups from "./evolution-slides.json";
 
@@ -176,6 +177,7 @@ export default function Home() {
   return (
     <main>
       <MotionController />
+      <InstagramProfile />
       <header className="site-header">
         <div className="container header-inner">
           <BrandMark />
@@ -184,6 +186,7 @@ export default function Home() {
             <a href="#programas">Programas</a>
             <a href="#dias">Dias de treino</a>
             <a href="#localizacao">Localização</a>
+          <a href="#redes-sociais">Redes sociais</a>
             <a href="https://search.google.com/local/writereview?placeid=ChIJpYs5qhCXuAcRwKAOvUNilrE" target="_blank" rel="noopener noreferrer">Avalie no Google</a>
           </nav>
           <a className="header-cta" href="#programas">
@@ -192,6 +195,7 @@ export default function Home() {
         </div>
               <nav className="container location-shortcuts" aria-label="Localização e avaliações">
           <a href="#localizacao">Localização</a>
+          <a href="#redes-sociais">Redes sociais</a>
           <a href="https://search.google.com/local/writereview?placeid=ChIJpYs5qhCXuAcRwKAOvUNilrE" target="_blank" rel="noopener noreferrer">Avalie no Google</a>
         </nav>
 </header>
@@ -340,6 +344,33 @@ export default function Home() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="social-section section" id="redes-sociais" aria-labelledby="social-heading">
+        <div className="container social-layout">
+          <div className="social-copy">
+            <p className="eyebrow"><span></span> Siga nossas redes sociais</p>
+            <h2 id="social-heading">O Studio também<br />está no seu feed.</h2>
+            <p>Acompanhe os treinos, os bastidores e as conquistas de quem faz parte do Studio Alex Pacheco.</p>
+            <a className="social-handle" href="https://www.instagram.com/studioalexpacheco/" target="_blank" rel="noopener noreferrer">@studioalexpacheco</a>
+            <a className="button button-solid social-follow" href="https://www.instagram.com/studioalexpacheco/" target="_blank" rel="noopener noreferrer">Seguir no Instagram <span aria-hidden="true">↗</span></a>
+          </div>
+          <div className="social-preview">
+            <blockquote className="instagram-media" data-instgrm-permalink="https://www.instagram.com/studioalexpacheco/" data-instgrm-version="14">
+              <a className="social-preview-link" href="https://www.instagram.com/studioalexpacheco/" target="_blank" rel="noopener noreferrer">
+                <span className="social-preview-name">Studio Alex Pacheco</span>
+                <span className="social-preview-user">@studioalexpacheco</span>
+                <span className="social-preview-photos" aria-label="Histórias do Studio">
+                  <img src="/evolucoes/evolucao-corrida.webp" alt="Evolução de um corredor do Studio" width="240" height="320" loading="lazy" />
+                  <img src="/evolucoes/evolucao-movimento-recuperado.webp" alt="Aluno do Studio em sua recuperação do movimento" width="240" height="320" loading="lazy" />
+                  <img src="/evolucoes/evolucao-sandrinha-18kg.webp" alt="História de evolução da Sandrinha" width="240" height="320" loading="lazy" />
+                </span>
+                <span className="social-preview-open">Veja o perfil no Instagram ↗</span>
+              </a>
+            </blockquote>
+            <a className="social-external" href="https://www.instagram.com/studioalexpacheco/" target="_blank" rel="noopener noreferrer">Abrir o perfil completo no Instagram ↗</a>
           </div>
         </div>
       </section>

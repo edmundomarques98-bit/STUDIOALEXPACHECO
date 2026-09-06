@@ -224,3 +224,35 @@ section[id], #avalie { scroll-margin-top: 110px; }
 .studio-map { width: 100%; min-width: 0; margin-top: 36px; overflow: hidden; border: 1px solid #32684d; border-radius: 12px; background: #15241c; }
 .studio-map iframe { display: block; width: 100%; height: 420px; border: 0; }
 @media (max-width: 760px) { .studio-map iframe { height: 300px; } }
+
+/* Instagram profile embed, with a usable profile link before external loading. */
+.social-section { background: #080e0b; }
+.social-layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,540px); gap: clamp(28px,6vw,80px); align-items: center; }
+.social-copy { min-width: 0; }
+.social-copy h2 { margin: 0 0 24px; font-size: clamp(2rem,4.2vw,3.5rem); line-height: 1.04; letter-spacing: -.04em; text-transform: uppercase; }
+.social-copy > p:not(.eyebrow) { max-width: 42ch; color: #b9c9bf; font-size: 17px; line-height: 1.7; }
+.social-handle { display: block; width: fit-content; max-width: 100%; margin: 26px 0 22px; color: var(--aqua); font-size: clamp(18px,2vw,24px); font-weight: 700; overflow-wrap: anywhere; }
+.social-follow { max-width: 100%; min-height: 48px; padding: 18px 24px; font-size: 14px; }
+.social-preview { width: 100%; min-width: 0; }
+.social-preview .instagram-media { width: 100% !important; min-width: 0 !important; max-width: 540px !important; margin: 0 !important; border: 1px solid #315944; border-radius: 12px; background: #fff; color: #15201a; }
+.social-preview-link { display: block; padding: 24px 18px; }
+.social-preview-name { display: block; font-size: 20px; font-weight: 800; }
+.social-preview-user { display: block; margin-top: 8px; color: #506259; font-size: 16px; }
+.social-preview-photos { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 4px; margin-top: 24px; }
+.social-preview-photos img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+.social-preview-open { display: block; padding-top: 22px; color: #086441; font-weight: 700; font-size: 15px; }
+.social-external { display: inline-flex; min-height: 44px; align-items: center; margin-top: 14px; color: var(--aqua); font-size: 14px; line-height: 1.5; }
+.site-header .header-inner > nav { gap: 18px; font-size: 14px; }
+@media (max-width: 1100px) {
+  .site-header .header-inner > nav { display: none; }
+  .site-header .location-shortcuts { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; padding-bottom: 8px; }
+  .location-shortcuts a { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 8px; border: 1px solid #28543d; border-radius: 8px; background: #0c1b13; color: var(--green); font-size: 14px; font-weight: 700; text-align: center; line-height: 1.4; }
+  .hero-content { padding-top: 155px; }
+  section[id], #avalie { scroll-margin-top: 160px; }
+}
+@media (max-width: 760px) {
+  .social-layout { grid-template-columns: minmax(0,1fr); gap: 34px; }
+  .social-follow { width: 100%; }
+  .social-copy .eyebrow { font-size: 12px; letter-spacing: .1em; }
+  .social-preview { max-width: 540px; margin-inline: auto; }
+}
