@@ -184,7 +184,7 @@ export default function Home() {
             <a href="#programas">Programas</a>
             <a href="#dias">Dias de treino</a>
             <a href="#localizacao">Localização</a>
-            <a href="#avalie">Avalie no Google</a>
+            <a href="https://search.google.com/local/writereview?placeid=ChIJpYs5qhCXuAcRwKAOvUNilrE" target="_blank" rel="noopener noreferrer">Avalie no Google</a>
           </nav>
           <a className="header-cta" href="#programas">
             Ver valores <ArrowRight size={16} aria-hidden="true" />
@@ -192,7 +192,7 @@ export default function Home() {
         </div>
               <nav className="container location-shortcuts" aria-label="Localização e avaliações">
           <a href="#localizacao">Localização</a>
-          <a href="#avalie">Avalie no Google</a>
+          <a href="https://search.google.com/local/writereview?placeid=ChIJpYs5qhCXuAcRwKAOvUNilrE" target="_blank" rel="noopener noreferrer">Avalie no Google</a>
         </nav>
 </header>
 
@@ -350,19 +350,22 @@ export default function Home() {
             <p className="eyebrow"><span></span> Localização e avaliações</p>
             <h2 id="location-heading">Perto de você.<br />Parte da sua evolução.</h2>
           </div>
+          <div className="studio-map">
+            <iframe title="Mapa do Studio Alex Pacheco" src="https://maps.google.com/maps?q=-4.1191748%2C-38.2435134&z=17&hl=pt-BR&output=embed" width="1180" height="420" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen></iframe>
+          </div>
           <div className="location-grid">
             <article className="location-card" data-reveal="card">
               <span className="location-label">Como chegar</span>
               <h3>Venha conhecer o Studio.</h3>
-              <p>Abra nosso perfil no Google para consultar a localização e traçar a rota até o Studio Alex Pacheco.</p>
-              <a className="button button-solid" href="https://share.google/LnVnGTdIWXZoCxmzW" target="_blank" rel="noopener noreferrer">Ver localização no Google <span aria-hidden="true">↗</span></a>
+              <p>Confira a localização no mapa e abra a rota para chegar ao Studio Alex Pacheco.</p>
+              <a className="button button-solid" href="https://www.google.com/maps/dir/?api=1&destination=-4.1191748%2C-38.2435134" target="_blank" rel="noopener noreferrer">Como chegar <span aria-hidden="true">↗</span></a>
             </article>
             <article className="location-card review-card" id="avalie" data-reveal="card">
               <span className="location-label">Sua experiência importa</span>
               <h3>Seu relato pode inspirar um novo começo.</h3>
               <p>Já treina com a gente? Conte no Google como tem sido sua experiência. Sua opinião ajuda outras pessoas a conhecer o Studio e escolher onde treinar.</p>
-              <a className="button review-button" href="https://share.google/LnVnGTdIWXZoCxmzW" target="_blank" rel="noopener noreferrer">Avalie no Google <span aria-hidden="true">↗</span></a>
-              <p className="review-help">No perfil do Studio, abra a área de avaliações e compartilhe sua experiência.</p>
+              <a className="button review-button" href="https://search.google.com/local/writereview?placeid=ChIJpYs5qhCXuAcRwKAOvUNilrE" target="_blank" rel="noopener noreferrer">Avalie no Google <span aria-hidden="true">↗</span></a>
+              <p className="review-help">Escolha as estrelas e conte sua experiência diretamente no Google.</p>
             </article>
           </div>
         </div>
