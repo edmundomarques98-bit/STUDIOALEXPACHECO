@@ -11,7 +11,7 @@ export function SiteInteractions() {
       const script = document.createElement("script");
       script.id = id;
       script.async = false;
-      script.src = `/${name}.js?v=20260908-desktop`;
+      script.src = `/${name}.js?v=20260908-events`;
       document.body.appendChild(script);
     }
   }, []);

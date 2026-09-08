@@ -23,24 +23,12 @@
     if (menu?.open && (!menu.contains(event.target) || event.target.closest('a'))) menu.open = false;
     const contact = event.target.closest('a[data-contact-source]');
     if (!contact) return;
-    // Do not include the message text or personal contact details in analytics.
-    const params = new URLSearchParams(location.search);
-    const campaignValue = key => (params.get(key) || '').replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 80);
-    let referrer = '';
-    try { referrer = new URL(document.referrer).hostname; } catch {}
-    window.dataLayer = window.dataLayer || [];
-    const detail = {
-      event: 'contact_click',
-      contact_channel: 'whatsapp',
-      contact_source: contact.dataset.contactSource,
-      plan: contact.dataset.plan || 'primeira_aula',
-      utm_source: campaignValue('utm_source'),
-      utm_medium: campaignValue('utm_medium'),
-      utm_campaign: campaignValue('utm_campaign'),
-      referrer_domain: referrer,
-    };
-    window.dataLayer.push(detail);
-    try { window.studioAnalytics?.trackContact(detail); } catch { /* Tracking must never block the link. */ }
+    try {
+      window.studioAnalytics?.trackContact({
+        contact_source: contact.dataset.contactSource,
+        plan: contact.dataset.plan || 'primeira_aula',
+      });
+    } catch { /* Tracking must never block the link. */ }
   });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && menu?.open) {

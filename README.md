@@ -32,7 +32,7 @@ O GitHub Pages publica `index.html`, `site.css` e os recursos copiados por `.git
 - WhatsApp: +55 85 99807-3701. Os links incluem mensagem e programa escolhido, mas não enviam mensagens automaticamente.
 - As 11 histórias e os 48 slides permanecem disponíveis; a primeira grade contém três destaques.
 - Horários, duração e condições da primeira aula devem ser consultados com Alex até existir uma programação atualizada confirmada.
-- `public/site-interactions.js` emite `contact_click` em `window.dataLayer`, com posição do botão, plano, parâmetros UTM sanitizados e domínio de referência. As integrações GA4, GTM, Clarity e Meta Pixel estão implementadas, aguardando os IDs reais em `public/analytics-config.js`. Veja [configuração e validação](docs/analytics.md). Contato é medido separadamente de matrícula.
+- `public/analytics.js`, integrado aos botões por `public/site-interactions.js`, emite `contact_click` em `window.dataLayer`, com posição do botão, plano, parâmetros UTM sanitizados e domínio de referência. As integrações GA4, GTM, Clarity e Meta Pixel estão implementadas, aguardando os IDs reais em `public/analytics-config.js`. Veja [configuração e validação](docs/analytics.md). Contato é medido separadamente de matrícula.
 
 Verificação sem instalar dependências: `node --check public/site-interactions.js` e `node --test tests/evolution-slideshow.test.mjs`.
 
@@ -43,3 +43,5 @@ No computador, os botões abrem diretamente o WhatsApp Web. Celulares e tablets 
 A publicação gera versões por conteúdo para todos os CSS/JS referenciados no HTML usando `scripts/version-pages-assets.py`. Ao carregar o HTML novo, o navegador busca os arquivos novos. O HTML ainda está sujeito ao cache do GitHub Pages; uma recarga forçada ou um parâmetro `?v=` novo força uma nova URL de entrada.
 
 Testes de contato e integração: `node --test tests/contact-analytics.test.mjs`.
+
+O módulo de análise também prepara UTMs de sessão, cliques sociais/localização/avaliações, marcos de rolagem e 30/60 segundos de aba visível. Continua inativo nas plataformas enquanto os IDs não forem preenchidos.
