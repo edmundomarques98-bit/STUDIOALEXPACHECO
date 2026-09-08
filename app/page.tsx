@@ -152,7 +152,7 @@ function PriceCard({
 
   return (
     <article className={`price-card ${featured ? "price-card-featured" : ""}`} data-reveal="card">
-      {featured ? <span className="popular-label">Mais escolhido</span> : null}
+      {featured ? <span className="popular-label">Mais querido</span> : null}
       <div className="price-card-top">
         <span>{kind}</span>
         <strong>{plan.days}</strong>

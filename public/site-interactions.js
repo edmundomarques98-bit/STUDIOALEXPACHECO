@@ -2,6 +2,20 @@
   if (window.__studioInteractionsLoaded) return;
   window.__studioInteractionsLoaded = true;
 
+  // Desktop goes directly to WhatsApp Web; phones/tablets keep the app link.
+  const mobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)
+    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (!mobile) {
+    document.querySelectorAll('a[data-contact-source]').forEach(link => {
+      const original = new URL(link.href);
+      if (original.hostname !== 'wa.me') return;
+      const desktop = new URL('https://web.whatsapp.com/send');
+      desktop.searchParams.set('phone', original.pathname.replace(/\D/g, ''));
+      desktop.searchParams.set('text', original.searchParams.get('text') || '');
+      link.href = desktop.href;
+    });
+  }
+
   // Navigation remains usable without JavaScript through native details/links.
   const menu = document.querySelector('.mobile-menu');
   document.addEventListener('click', event => {
@@ -9,13 +23,13 @@
     if (menu?.open && (!menu.contains(event.target) || event.target.closest('a'))) menu.open = false;
     const contact = event.target.closest('a[data-contact-source]');
     if (!contact) return;
-    // Integration hook only: no analytics provider, personal data or persistent storage.
+    // Do not include the message text or personal contact details in analytics.
     const params = new URLSearchParams(location.search);
     const campaignValue = key => (params.get(key) || '').replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 80);
     let referrer = '';
     try { referrer = new URL(document.referrer).hostname; } catch {}
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
+    const detail = {
       event: 'contact_click',
       contact_channel: 'whatsapp',
       contact_source: contact.dataset.contactSource,
@@ -24,7 +38,9 @@
       utm_medium: campaignValue('utm_medium'),
       utm_campaign: campaignValue('utm_campaign'),
       referrer_domain: referrer,
-    });
+    };
+    window.dataLayer.push(detail);
+    try { window.studioAnalytics?.trackContact(detail); } catch { /* Tracking must never block the link. */ }
   });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && menu?.open) {
