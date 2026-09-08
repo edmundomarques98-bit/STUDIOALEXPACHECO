@@ -15,7 +15,8 @@ import slideGroups from "./evolution-slides.json";
 
 const slidesByImage: Record<string, string[]> = slideGroups;
 
-import { MotionController } from "./motion-controller";
+import { SiteInteractions } from "./site-interactions";
+import { whatsappUrl } from "./studio-contact";
 
 const individualPlans = [
   { days: "3 dias", price: "100", note: "3 dias da sua escolha", featured: false },
@@ -166,8 +167,8 @@ function PriceCard({
         <li><Check size={17} aria-hidden="true" /> Programação semanal</li>
         <li><Check size={17} aria-hidden="true" /> Evolução acompanhada</li>
       </ul>
-      <a className={featured ? "button button-solid" : "button button-outline"} href="#como-comecar">
-        Escolher programa <ArrowRight size={17} aria-hidden="true" />
+      <a className={featured ? "button button-solid" : "button button-outline"} href={whatsappUrl(`${kind} — ${plan.days} por semana, R$ ${plan.price}/mês`)} target="_blank" rel="noopener noreferrer" data-contact-source={`plan_${kind.toLowerCase()}_${plan.days[0]}`} data-plan={`${kind} — ${plan.days}`}>
+        Quero este programa <ArrowRight size={17} aria-hidden="true" />
       </a>
     </article>
   );
@@ -176,7 +177,7 @@ function PriceCard({
 export default function Home() {
   return (
     <main>
-      <MotionController />
+      <SiteInteractions />
       <InstagramProfile />
       <header className="site-header">
         <div className="container header-inner">
@@ -189,15 +190,12 @@ export default function Home() {
           <a href="#redes-sociais">Redes sociais</a>
             <a href="https://search.google.com/local/writereview?placeid=ChIJpYs5qhCXuAcRwKAOvUNilrE" target="_blank" rel="noopener noreferrer">Avalie no Google</a>
           </nav>
-          <a className="header-cta" href="#programas">
-            Ver valores <ArrowRight size={16} aria-hidden="true" />
+<details className="mobile-menu"><summary>Menu</summary><nav aria-label="Mais opções de navegação"><a href="#evolucoes">Evoluções</a><a href="#dias">Dias de treino</a><a href="#primeira-aula">Primeira aula</a><a href="#redes-sociais">Instagram</a><a href="#avalie">Avaliações</a></nav></details>
+          <a className="header-cta" href={whatsappUrl()} target="_blank" rel="noopener noreferrer" data-contact-source="header">
+            Falar com Alex <ArrowRight size={16} aria-hidden="true" />
           </a>
         </div>
-              <nav className="container location-shortcuts" aria-label="Localização e avaliações">
-          <a href="#localizacao">Localização</a>
-          <a href="#redes-sociais">Redes sociais</a>
-          <a href="https://search.google.com/local/writereview?placeid=ChIJpYs5qhCXuAcRwKAOvUNilrE" target="_blank" rel="noopener noreferrer">Avalie no Google</a>
-        </nav>
+              <nav className="container location-shortcuts" aria-label="Acesso rápido"><a href="#programas">Planos</a><a href="#localizacao">Como chegar</a><a className="mobile-contact" href={whatsappUrl()} target="_blank" rel="noopener noreferrer" data-contact-source="mobile_nav">WhatsApp</a></nav>
 </header>
 
       <section className="hero" id="inicio">
@@ -206,7 +204,7 @@ export default function Home() {
         <div className="hero-media" aria-hidden="true" />
         <div className="container hero-content">
           <div className="hero-copy">
-            <p className="eyebrow"><span /> Treinamento funcional em Acopiara</p>
+            <p className="eyebrow"><span /> Treinamento funcional em Cascavel–CE</p>
             <h1 className="hero-title">
               <span>Seu progresso</span>
               <span>vai <em>muito além</em></span>
@@ -216,8 +214,8 @@ export default function Home() {
               Programas de treino que respeitam seu nível, sua rotina e o resultado que você quer construir.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#programas">
-                Conhecer programas <ArrowRight size={18} aria-hidden="true" />
+              <a className="button button-primary" href={whatsappUrl()} target="_blank" rel="noopener noreferrer" data-contact-source="hero">
+                Quero começar <ArrowRight size={18} aria-hidden="true" />
               </a>
               <a className="text-link" href="#evolucoes">Ver histórias de evolução</a>
             </div>
@@ -268,7 +266,7 @@ export default function Home() {
             </p>
           </div>
           <div className="evolution-grid">
-            {evolutions.map((item, index) => (
+            {evolutions.map((item, index) => ({ item, index })).filter(({ index }) => [0, 3, 9].includes(index)).map(({ item, index }) => (
               <article className="evolution-card" key={item.title} data-reveal="card">
                 {slidesByImage[item.image] ? (
                   <EvolutionSlideshow title={item.title} images={slidesByImage[item.image]} />
@@ -286,6 +284,23 @@ export default function Home() {
               </article>
             ))}
           </div>
+<div className="gallery-contact"><a className="button button-solid" href={whatsappUrl()} target="_blank" rel="noopener noreferrer" data-contact-source="gallery">Quero começar minha evolução</a></div><details className="gallery-more"><summary><span className="when-closed">Ver todas as 11 histórias</span><span className="when-open">Recolher histórias</span></summary><div className="evolution-grid">            {evolutions.map((item, index) => ({ item, index })).filter(({ index }) => ![0, 3, 9].includes(index)).map(({ item, index }) => (
+              <article className="evolution-card" key={item.title} data-reveal="card">
+                {slidesByImage[item.image] ? (
+                  <EvolutionSlideshow title={item.title} images={slidesByImage[item.image]} />
+                ) : (
+                  <div className={`evolution-photo ${item.imageClass}`}>
+                    <img src={item.image} alt={item.alt} loading="lazy" />
+                  </div>
+                )}
+                <div className="evolution-card-content">
+                  <span className="card-index">{String(index + 1).padStart(2, "0")}</span>
+                  <strong className="evolution-number">{item.number}</strong>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </article>
+            ))}</div></details>
           <p className="results-note">Resultados individuais variam de acordo com frequência, hábitos e condições de cada pessoa.</p>
         </div>
       </section>
@@ -311,7 +326,7 @@ export default function Home() {
           <div className="plan-group couple-group">
             <div className="plan-group-title" data-reveal="heading">
               <span><Users size={20} /> Casal</span>
-              <small>Mais motivação para evoluírem juntos.</small>
+              <small>Valor mensal para duas pessoas. Mais motivação para evoluírem juntos.</small>
             </div>
             <div className="pricing-grid">
               {couplePlans.map((plan) => <PriceCard key={plan.days} plan={plan} kind="Casal" />)}
@@ -388,29 +403,30 @@ export default function Home() {
             <article className="location-card" data-reveal="card">
               <span className="location-label">Como chegar</span>
               <h3>Venha conhecer o Studio.</h3>
-              <p>Confira a localização no mapa e abra a rota para chegar ao Studio Alex Pacheco.</p>
+              <p>Av. Eliezer Ximenes Rodrigues, 3694 — Estrada da Caponga, Cascavel–CE. CEP 62850-000.</p>
               <a className="button button-solid" href="https://www.google.com/maps/dir/?api=1&destination=-4.1191748%2C-38.2435134" target="_blank" rel="noopener noreferrer">Como chegar <span aria-hidden="true">↗</span></a>
             </article>
             <article className="location-card review-card" id="avalie" data-reveal="card">
               <span className="location-label">Sua experiência importa</span>
-              <h3>Seu relato pode inspirar um novo começo.</h3>
-              <p>Já treina com a gente? Conte no Google como tem sido sua experiência. Sua opinião ajuda outras pessoas a conhecer o Studio e escolher onde treinar.</p>
+              <h3>Conheça outras experiências.</h3>
+              <p>Veja as avaliações do Studio no Google. Já treina com a gente? Seu relato também pode ajudar alguém a dar o primeiro passo.</p>
               <a className="button review-button" href="https://search.google.com/local/writereview?placeid=ChIJpYs5qhCXuAcRwKAOvUNilrE" target="_blank" rel="noopener noreferrer">Avalie no Google <span aria-hidden="true">↗</span></a>
-              <p className="review-help">Escolha as estrelas e conte sua experiência diretamente no Google.</p>
+              <a className="review-read" href="https://www.google.com/maps/search/?api=1&amp;query=Studio+Alex+Pacheco+Cascavel&amp;query_place_id=ChIJpYs5qhCXuAcRwKAOvUNilrE" target="_blank" rel="noopener noreferrer">Ler avaliações no Google ↗</a><p className="review-help">Escolha as estrelas e conte sua experiência diretamente no Google.</p>
             </article>
           </div>
         </div>
       </section>
 
+<section className="section first-class" id="primeira-aula"><div className="container"><div className="section-heading"><p className="eyebrow"><span></span> Como começar</p><h2>Seu primeiro treino começa com uma conversa.</h2></div><ol className="first-steps"><li><h3>Conte seu objetivo</h3><p>Fale com Alex sobre sua rotina, seu nível de treino e o que você quer conquistar.</p></li><li><h3>Combine sua primeira aula</h3><p>Consulte os horários das turmas, a duração da aula e as condições para participar.</p></li><li><h3>Escolha sua frequência</h3><p>Conheça os programas de 3, 4 ou 5 dias e organize com Alex os próximos passos.</p></li></ol><a className="button button-solid" href="https://wa.me/5585998073701?text=Ol%C3%A1%2C%20Alex%21%20Vi%20as%20evolu%C3%A7%C3%B5es%20do%20Studio%20e%20quero%20dar%20o%20primeiro%20passo.%20Gostei%20da%20proposta%20de%20treinar%20com%20orienta%C3%A7%C3%A3o%20e%20no%20meu%20ritmo.%20Quero%20ganhar%20mais%20disposi%C3%A7%C3%A3o%20e%20criar%20uma%20rotina%20de%20treino.%20Podemos%20conversar%20sobre%20os%20hor%C3%A1rios%20e%20como%20agendar%20minha%20primeira%20aula%3F" target="_blank" rel="noopener noreferrer" data-contact-source="first_class">Consultar horários e primeira aula</a></div></section>
       <section className="start-section" id="como-comecar">
         <div className="container start-card" data-reveal="section">
           <div>
             <p className="eyebrow"><span /> Seu próximo passo</p>
             <h2>Você não precisa estar preparado para começar.</h2>
-            <p>Precisa apenas escolher o primeiro passo. Veja o programa ideal e fale com a equipe do Studio para organizar sua rotina.</p>
+            <p>Quer ter mais disposição, mas ainda não sabe por onde começar? No Studio, o treino respeita seu nível e sua rotina. Imagine construir constância e sentir sua evolução a cada semana. Fale com Alex e combine seu primeiro passo.</p>
           </div>
-          <a className="button button-dark" href="#programas">
-            Escolher meu programa <ArrowRight size={18} />
+          <a className="button button-dark" href={whatsappUrl()} target="_blank" rel="noopener noreferrer" data-contact-source="final">
+            Quero agendar minha primeira aula <ArrowRight size={18} />
           </a>
         </div>
       </section>
@@ -418,7 +434,7 @@ export default function Home() {
       <footer>
         <div className="container footer-inner">
           <BrandMark />
-          <p>Treinamento funcional com propósito, constância e evolução.</p>
+          <div className="footer-contact"><p>Treinamento funcional em Cascavel–CE.</p><a className="footer-phone" href={whatsappUrl()} target="_blank" rel="noopener noreferrer" data-contact-source="footer">Alex Pacheco · (85) 99807-3701</a></div>
           <a href="#inicio">Voltar ao topo ↑</a>
         </div>
       </footer>

@@ -3,8 +3,8 @@ import "./globals.css";
 import { EvolutionController } from "./evolution-controller";
 
 export const metadata: Metadata = {
-  title: "Studio Alex Pacheco",
-  description: "Programas de treinamento funcional de 3 a 5 dias por semana, com opções individuais e para casal em Acopiara.",
+  title: "Studio Alex Pacheco | Treinamento funcional em Cascavel–CE",
+  description: "Programas de treinamento funcional de 3 a 5 dias por semana, com opções individuais e para casal em Cascavel–CE.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
