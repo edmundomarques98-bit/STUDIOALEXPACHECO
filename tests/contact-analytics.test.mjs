@@ -64,9 +64,9 @@ function setup(config = {}, navigator = { userAgent: 'Windows NT', platform: 'Wi
   };
 }
 
-test('all 13 desktop links open WhatsApp Web with the original recipient and message', () => {
+test('all 14 desktop links open WhatsApp Web with the original recipient and message', () => {
   const s = setup();
-  assert.equal(s.links.length, 13);
+  assert.equal(s.links.length, 14);
   for (const link of s.links) {
     const url = new URL(link.href);
     assert.equal(url.origin + url.pathname, 'https://web.whatsapp.com/send');

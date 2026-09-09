@@ -45,3 +45,25 @@ A publicação gera versões por conteúdo para todos os CSS/JS referenciados no
 Testes de contato e integração: `node --test tests/contact-analytics.test.mjs`.
 
 O módulo de análise também prepara UTMs de sessão, cliques sociais/localização/avaliações, marcos de rolagem e 30/60 segundos de aba visível. Continua inativo nas plataformas enquanto os IDs não forem preenchidos.
+
+## Quem é Alex Pacheco
+
+A seção `#quem-e-alex` apresenta a formação e a trajetória fornecidas pelo
+responsável pelo site na imagem do post de 12/04/2025 do Papooca Cascavel.
+O texto resume: natural de Itapipoca; fundador do Studio em Cascavel; mais de
+15 anos de atuação; bacharelado e licenciatura em Educação Física; experiência
+em ginásticas coletivas, dança, doenças crônicas, lesões no esporte e funcional;
+dois artigos publicados e colaboração em livro sobre dança em Itapipoca.
+Não foram acrescentados CREF, títulos, datas de formação nem promessas clínicas.
+
+Fotos originais do usuário em `public/alex/`, sem regenerar rosto ou corpo.
+A tentativa de remoção de fundo por IA foi descartada por falta de transparência
+e alterações de detalhes. **Os fundos originais permanecem; recortes fiéis com
+transparência ainda estão pendentes.** Os três arquivos são cópias byte a byte.
+
+`public/alex-profile.css` e `public/alex-profile.js` integram a seção no HTML
+público e em `app/alex-profile.tsx`. As duas cenas de pneus usam inclinação de
+até 3°/4° com perspectiva CSS, não modelos tridimensionais nem deformação da
+pessoa. O efeito acompanha somente mouse com ponteiro preciso; retorna ao
+repouso na saída do mouse, fora da tela e com aba oculta. Em telas de toque,
+não usa giroscópio nem intercepta rolagem. Respeita movimento reduzido.

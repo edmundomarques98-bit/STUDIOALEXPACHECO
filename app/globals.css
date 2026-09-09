@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "../public/alex-profile.css";
 @import "../vendor/shadcn-tailwind-4.13.0.css";
 :root {
   --ink: #090b0b;

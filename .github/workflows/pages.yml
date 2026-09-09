@@ -36,6 +36,8 @@ jobs:
           cp public/hero-studio.webp public/favicon.svg public/evolution-slideshow.js public/site-interactions.js public/analytics-config.js public/analytics.js _site/public/
           cp videos/*.mp4 _site/videos/
           cp -R evolucoes/. _site/evolucoes/
+          cp public/alex-profile.css public/alex-profile.js _site/public/
+          cp -R public/alex _site/public/alex
           python3 scripts/version-pages-assets.py _site
 
       - name: Enviar arquivos

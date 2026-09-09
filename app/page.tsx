@@ -15,6 +15,7 @@ import slideGroups from "./evolution-slides.json";
 
 const slidesByImage: Record<string, string[]> = slideGroups;
 
+import { AlexProfile } from "./alex-profile";
 import { SiteInteractions } from "./site-interactions";
 import { whatsappUrl } from "./studio-contact";
 
@@ -183,6 +184,7 @@ export default function Home() {
         <div className="container header-inner">
           <BrandMark />
           <nav aria-label="Navegação principal">
+            <a href="#quem-e-alex">Quem é Alex</a>
             <a href="#evolucoes">Evoluções</a>
             <a href="#programas">Programas</a>
             <a href="#dias">Dias de treino</a>
@@ -190,7 +192,7 @@ export default function Home() {
           <a href="#redes-sociais">Redes sociais</a>
             <a href="https://search.google.com/local/writereview?placeid=ChIJpYs5qhCXuAcRwKAOvUNilrE" target="_blank" rel="noopener noreferrer">Avalie no Google</a>
           </nav>
-<details className="mobile-menu"><summary>Menu</summary><nav aria-label="Mais opções de navegação"><a href="#evolucoes">Evoluções</a><a href="#dias">Dias de treino</a><a href="#primeira-aula">Primeira aula</a><a href="#redes-sociais">Instagram</a><a href="#avalie">Avaliações</a></nav></details>
+<details className="mobile-menu"><summary>Menu</summary><nav aria-label="Mais opções de navegação"><a href="#quem-e-alex">Quem é Alex</a><a href="#evolucoes">Evoluções</a><a href="#dias">Dias de treino</a><a href="#primeira-aula">Primeira aula</a><a href="#redes-sociais">Instagram</a><a href="#avalie">Avaliações</a></nav></details>
           <a className="header-cta" href={whatsappUrl()} target="_blank" rel="noopener noreferrer" data-contact-source="header">
             Falar com Alex <ArrowRight size={16} aria-hidden="true" />
           </a>
@@ -253,6 +255,8 @@ export default function Home() {
           </article>
         </div>
       </section>
+
+      <AlexProfile />
 
       <section className="evolution-section section" id="evolucoes">
         <div className="container">
