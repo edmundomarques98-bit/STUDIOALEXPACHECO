@@ -8,7 +8,7 @@ export function AlexProfile() {
           <div className="alex-portrait alex-reveal">
             <span className="alex-portrait-word" aria-hidden="true">ALEX</span>
             <div className="alex-portrait-halo" aria-hidden="true"></div>
-            <img src="/alex/alex-retrato.jpg" alt="Alex Pacheco de braços cruzados, vestindo a camisa do Studio" width="1385" height="1536" loading="lazy" decoding="async" />
+            <img src="/alex/alex-retrato-recorte.png" alt="Alex Pacheco de braços cruzados, vestindo a camisa do Studio" width="1385" height="1536" loading="lazy" decoding="async" />
             <div className="alex-portrait-caption"><strong>Alex Pacheco</strong><span>Fundador do Studio · Cascavel–CE</span></div>
           </div>
           <div className="alex-bio alex-reveal">
@@ -28,11 +28,11 @@ export function AlexProfile() {
         <div className="alex-action-heading alex-reveal"><p className="eyebrow"><span></span> Movimento faz parte da história</p><h3>Quem orienta também<br /><em>vive o movimento.</em></h3></div>
         <div className="alex-actions">
           <figure className="alex-action alex-reveal" data-alex-depth>
-            <div className="alex-action-scene"><span className="alex-action-number" aria-hidden="true">01</span><div className="alex-action-orbit" aria-hidden="true"></div><div className="alex-depth-layer"><img src="/alex/alex-pneu-alto.jpg" alt="Alex Pacheco em treino, sustentando um pneu acima da cabeça" width="1152" height="1536" loading="lazy" decoding="async" /></div></div>
+            <div className="alex-action-scene"><span className="alex-action-number" aria-hidden="true">01</span><div className="alex-action-orbit" aria-hidden="true"></div><div className="alex-depth-layer"><img src="/alex/alex-pneu-alto-recorte.png" alt="Alex Pacheco em treino, sustentando um pneu acima da cabeça" width="1152" height="1536" loading="lazy" decoding="async" /></div></div>
             <figcaption><strong>Força em movimento.</strong><span>Vivência prática que acompanha sua trajetória profissional.</span></figcaption>
           </figure>
           <figure className="alex-action alex-reveal" data-alex-depth>
-            <div className="alex-action-scene"><span className="alex-action-number" aria-hidden="true">02</span><div className="alex-action-orbit" aria-hidden="true"></div><div className="alex-depth-layer"><img src="/alex/alex-pneu-apoio.jpg" alt="Alex Pacheco em uma pose de treino com um pé apoiado no pneu" width="1536" height="1152" loading="lazy" decoding="async" /></div></div>
+            <div className="alex-action-scene"><span className="alex-action-number" aria-hidden="true">02</span><div className="alex-action-orbit" aria-hidden="true"></div><div className="alex-depth-layer"><img src="/alex/alex-pneu-apoio-recorte.png" alt="Alex Pacheco em uma pose de treino com um pé apoiado no pneu" width="1536" height="1152" loading="lazy" decoding="async" /></div></div>
             <figcaption><strong>Uma vida dedicada a ensinar.</strong><span>Da dança ao funcional, uma relação próxima com o corpo e suas possibilidades.</span></figcaption>
           </figure>
         </div>

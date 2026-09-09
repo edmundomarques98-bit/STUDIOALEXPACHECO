@@ -56,10 +56,12 @@ em ginásticas coletivas, dança, doenças crônicas, lesões no esporte e funci
 dois artigos publicados e colaboração em livro sobre dança em Itapipoca.
 Não foram acrescentados CREF, títulos, datas de formação nem promessas clínicas.
 
-Fotos originais do usuário em `public/alex/`, sem regenerar rosto ou corpo.
-A tentativa de remoção de fundo por IA foi descartada por falta de transparência
-e alterações de detalhes. **Os fundos originais permanecem; recortes fiéis com
-transparência ainda estão pendentes.** Os três arquivos são cópias byte a byte.
+Fotos originais do usuário preservadas em `public/alex/` como JPGs. A seção
+usa as versões `*-recorte.png`, com fundo removido pelo Adobe, sem regeneração
+de rosto ou corpo. Os três PNGs mantêm as dimensões originais e transparência
+real, inclusive no vão dos pneus. A comparação com os JPGs confirmou igualdade
+dos pixels RGB em todas as áreas totalmente opacas dos recortes. As imagens
+carregam sob demanda e são hospedadas junto ao site, sem URLs temporárias.
 
 `public/alex-profile.css` e `public/alex-profile.js` integram a seção no HTML
 público e em `app/alex-profile.tsx`. As duas cenas de pneus usam inclinação de

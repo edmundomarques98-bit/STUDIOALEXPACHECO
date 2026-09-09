@@ -4,7 +4,7 @@
 .alex-portrait{position:relative;isolation:isolate;margin:0;min-width:0;align-self:stretch;display:flex;align-items:flex-end;justify-content:center;min-height:580px}
 .alex-portrait-halo{position:absolute;inset:18% 1% 8%;z-index:-2;border-radius:50% 50% 8px 8px;background:linear-gradient(150deg,#1c7553,#102e25 62%,#091510);border:1px solid #3fc79930}
 .alex-portrait-word{position:absolute;top:3%;left:0;right:0;z-index:-1;text-align:center;font-weight:950;font-size:clamp(6rem,11vw,10rem);line-height:1;letter-spacing:-.075em;color:transparent;-webkit-text-stroke:1px #4fd8a954;user-select:none}
-.alex-portrait>img{border-radius:46% 46% 3% 3%;display:block;position:relative;width:100%;height:auto;max-height:710px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 16px 25px #0003);mask-image:linear-gradient(#000 84%,transparent 100%)}
+.alex-portrait>img{display:block;position:relative;width:100%;height:auto;max-height:710px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 16px 25px #0003);mask-image:linear-gradient(#000 84%,transparent 100%)}
 .alex-portrait-caption{position:absolute;bottom:12px;left:8%;right:5%;padding:22px 0;border-top:1px solid #65bd954d}
 .alex-portrait-caption strong{display:block;font-size:1.25rem;letter-spacing:.025em}
 .alex-portrait-caption span{display:block;margin-top:7px;color:#b7d4c7;font-size:.875rem;line-height:1.5}
@@ -38,7 +38,7 @@
 .alex-action:nth-child(2) .alex-action-orbit{border-color:#28d7cf30;transform:rotate(18deg);background:radial-gradient(ellipse,#124b5245,transparent 65%)}
 .alex-depth-layer{width:100%;height:100%;display:flex;align-items:center;justify-content:center;transform:rotateX(var(--alex-rx,0deg)) rotateY(var(--alex-ry,0deg)) translateZ(16px);transition:transform .4s cubic-bezier(.2,.75,.25,1)}
 .alex-action.is-active .alex-depth-layer{will-change:transform;transition-duration:.14s}
-.alex-depth-layer img{border-radius:16px;display:block;max-width:95%;width:auto;max-height:100%;height:auto;object-fit:contain;filter:drop-shadow(0 16px 18px #0005);pointer-events:none;user-select:none}
+.alex-depth-layer img{display:block;max-width:95%;width:auto;max-height:100%;height:auto;object-fit:contain;filter:drop-shadow(0 16px 18px #0005);pointer-events:none;user-select:none}
 .alex-action figcaption{padding:25px 0 0;margin-top:16px;border-top:1px solid #315340}
 .alex-action figcaption strong{display:block;font-size:1.25rem;line-height:1.4;margin-bottom:8px}
 .alex-action figcaption>span{display:block;max-width:420px;font-size:1rem;line-height:1.7;color:#b8cdc2}
@@ -48,6 +48,6 @@
 @media(min-width:1101px){.site-header .header-inner>nav{gap:14px}.site-header .header-inner>nav a{white-space:nowrap}.site-header .brand{flex-shrink:0}}
 @media(min-width:1101px) and (max-width:1270px){.site-header .header-inner>nav{flex-wrap:wrap;justify-content:center;gap:8px 16px;padding-block:8px;font-size:.875rem}.site-header .header-inner{min-height:100px;height:auto}.hero-content{padding-top:125px}}
 @media(max-width:1100px){.alex-section{scroll-margin-top:160px}.alex-intro{gap:32px}.alex-portrait{min-height:520px}.alex-bio h2{font-size:clamp(2.5rem,5vw,3.5rem)}}
-@media(max-width:800px){.alex-intro{grid-template-columns:minmax(0,1fr);gap:36px}.alex-portrait{max-width:480px;min-height:0;width:100%;height:510px;margin-inline:auto}.alex-portrait>img{border-radius:46% 46% 3% 3%;height:100%;width:100%}.alex-portrait-word{font-size:7rem}.alex-bio{max-width:640px;margin-inline:auto}.alex-bio h2{font-size:clamp(2.6rem,8vw,3.8rem)}.alex-action-heading{display:block;margin-top:58px}.alex-action-heading .eyebrow{max-width:none;margin-bottom:20px}.alex-actions{gap:24px}.alex-action-scene{height:330px}.alex-credentials{grid-template-columns:.8fr 1.2fr}}
+@media(max-width:800px){.alex-intro{grid-template-columns:minmax(0,1fr);gap:36px}.alex-portrait{max-width:480px;min-height:0;width:100%;height:510px;margin-inline:auto}.alex-portrait>img{height:100%;width:100%}.alex-portrait-word{font-size:7rem}.alex-bio{max-width:640px;margin-inline:auto}.alex-bio h2{font-size:clamp(2.6rem,8vw,3.8rem)}.alex-action-heading{display:block;margin-top:58px}.alex-action-heading .eyebrow{max-width:none;margin-bottom:20px}.alex-actions{gap:24px}.alex-action-scene{height:330px}.alex-credentials{grid-template-columns:.8fr 1.2fr}}
 @media(max-width:560px){.alex-section{padding-block:54px}.alex-portrait{height:420px}.alex-portrait-word{font-size:6rem}.alex-portrait-caption{bottom:0;padding:16px 0}.alex-bio .eyebrow,.alex-action-heading .eyebrow{letter-spacing:.05em}.alex-credentials{gap:14px}.alex-credentials dt{font-size:1.15rem}.alex-contact{width:100%}.alex-actions{grid-template-columns:minmax(0,1fr);gap:36px}.alex-action-scene{height:340px}.alex-action:nth-child(2) .alex-action-scene{height:300px}.alex-action figcaption{margin-top:8px;padding-top:18px}.alex-action-heading h3{font-size:1.9rem}}
 @media(prefers-reduced-motion:reduce){.alex-reveal.is-revealed{animation:none}.alex-depth-layer{transform:none;transition:none}.alex-background>summary>span{transition:none}}
