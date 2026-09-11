@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "../public/alex-profile.css";
 @import "../vendor/shadcn-tailwind-4.13.0.css";
 :root {
   --ink: #090b0b;
@@ -67,7 +66,7 @@ nav a:hover, nav a:focus-visible { color: var(--green); }
   background-image:
     linear-gradient(90deg, #080a0a 0%, rgba(8,10,10,.94) 24%, rgba(8,10,10,.2) 62%, rgba(8,10,10,.25) 100%),
     linear-gradient(0deg, #080a0a 0%, transparent 42%),
-    url("/hero-studio.webp");
+    url("/alex/alex-pneu-alto-recorte.png");
   background-size: cover;
   background-position: center;
 }

@@ -51,3 +51,25 @@
 @media(max-width:800px){.alex-intro{grid-template-columns:minmax(0,1fr);gap:36px}.alex-portrait{max-width:480px;min-height:0;width:100%;height:510px;margin-inline:auto}.alex-portrait>img{height:100%;width:100%}.alex-portrait-word{font-size:7rem}.alex-bio{max-width:640px;margin-inline:auto}.alex-bio h2{font-size:clamp(2.6rem,8vw,3.8rem)}.alex-action-heading{display:block;margin-top:58px}.alex-action-heading .eyebrow{max-width:none;margin-bottom:20px}.alex-actions{gap:24px}.alex-action-scene{height:330px}.alex-credentials{grid-template-columns:.8fr 1.2fr}}
 @media(max-width:560px){.alex-section{padding-block:54px}.alex-portrait{height:420px}.alex-portrait-word{font-size:6rem}.alex-portrait-caption{bottom:0;padding:16px 0}.alex-bio .eyebrow,.alex-action-heading .eyebrow{letter-spacing:.05em}.alex-credentials{gap:14px}.alex-credentials dt{font-size:1.15rem}.alex-contact{width:100%}.alex-actions{grid-template-columns:minmax(0,1fr);gap:36px}.alex-action-scene{height:340px}.alex-action:nth-child(2) .alex-action-scene{height:300px}.alex-action figcaption{margin-top:8px;padding-top:18px}.alex-action-heading h3{font-size:1.9rem}}
 @media(prefers-reduced-motion:reduce){.alex-reveal.is-revealed{animation:none}.alex-depth-layer{transform:none;transition:none}.alex-background>summary>span{transition:none}}
+
+/* Keep Alex and the overhead tire inside the hero instead of cropping with cover. */
+.hero-media{
+  background-size:100% 100%,100% 100%,auto calc(100% - 100px);
+  background-position:center,center,calc(50% + 330px) bottom;
+  background-repeat:no-repeat;
+  opacity:1;
+  animation:none;
+}
+@media(max-width:1100px){
+  .hero-media{background-position:center,center,calc(50% + 180px) bottom}
+}
+@media(max-width:760px){
+  .hero-media{
+    background-size:100% 100%,100% 100%,auto 640px;
+    background-position:center,center,calc(50% + 45px) 130px;
+  }
+  .hero-media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(8,10,10,.05) 130px,rgba(8,10,10,.46) 300px,rgba(8,10,10,.75) 620px,#080a0a 100%);
+  }
+}
